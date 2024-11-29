@@ -8,7 +8,6 @@ import com.expensetracker.entities.Expense;
 import com.expensetracker.enums.Category;
 import com.expensetracker.exception.ResourceNotFoundException;
 import com.expensetracker.repository.ExpenseRepository;
-import org.aspectj.apache.bcel.classfile.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +37,8 @@ public class ExpenseService {
 
     }
 
+    //update the expenses
     public ExpenseResponse updateExpense(Long id,ExpenseRequest request){
-
         if(!expenseRepository.existsById(id)){
            throw new ResourceNotFoundException(ConstantMessage.NOT_FOUND_EXCEPTION);
        }
@@ -52,10 +51,8 @@ public class ExpenseService {
        existingExpense.setDate(request.getDate());
        //Save updated expense
         Expense updatedExpense =expenseRepository.save(existingExpense);
-
         //Convert to DTO
         return DtoConversion.expenseToExpenseResponse(updatedExpense);
-
     }
 }
 
