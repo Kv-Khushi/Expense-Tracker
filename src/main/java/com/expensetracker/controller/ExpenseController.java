@@ -41,5 +41,7 @@ public class ExpenseController {
         return ResponseEntity.ok(updatedExpense);
     }
 
+    //total expense 
+
 }
 

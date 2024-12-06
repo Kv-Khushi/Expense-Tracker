@@ -22,6 +22,8 @@ public class Expense {
 
     private LocalDate date;
 
+
+
     public Long getId() {
         return id;
     }
